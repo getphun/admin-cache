@@ -1,0 +1,44 @@
+<?php $this->partial('shared/header'); ?>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    Total caches: <?= number_format($total, 0, '.', '.') ?>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="page-header">
+                <h3>System Caches</h3>
+            </div>
+            
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <?php if(!$total): ?>
+                    System cache is empty. Nothing to do here.
+                    <?php else: ?>
+                    <a href="?clear=1" class="btn btn-danger pull-right">Clear</a>
+                    <p>
+                        We found some cache(s), would you like to clear them?<br>
+                        Please just make sure you know what you are doing by clearing
+                        the caches manually.
+                    </p>
+                    <p>List of condition where you want to clear the caches:</p>
+                    
+                    <ol>
+                        <li>You just update system source code.</li>
+                        <li>You just update module(s) <strong>manually</strong>.</li>
+                        <li>You just update the front-end theme.</li>
+                        <li>You just update database <strong>manually</strong>.</li>
+                        <li>You just want to clear it for no reason.</li>
+                    </ol>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php $this->partial('shared/footer'); ?>
